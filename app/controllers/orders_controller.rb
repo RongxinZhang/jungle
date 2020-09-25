@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
 
   def show
+    puts enhanced_cart
     @order = Order.find(params[:id])
   end
 
