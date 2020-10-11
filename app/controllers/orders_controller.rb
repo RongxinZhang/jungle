@@ -1,8 +1,17 @@
 class OrdersController < ApplicationController
-
   def show
-    puts enhanced_cart
-    @order = Order.find(params[:id])
+    order_id = params[:id]
+    @order = Order.find(order_id)
+
+    # @line_items = Product.find(@order.line_items[0].id)
+    @line_items = Array.new
+
+    @order.line_items.each do |item|
+      puts "HERER" + item.id.to_s
+      @line_items.push(Product.find(item.id))
+    end
+    puts "NOEW" + @line_items.inspect
+
   end
 
   def create
@@ -56,5 +65,4 @@ class OrdersController < ApplicationController
     order.save!
     order
   end
-
 end
