@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   end
 
   get '/signup' => 'users#new'
-    post '/users' => 'users#create'
+  post '/users' => 'users#create'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
