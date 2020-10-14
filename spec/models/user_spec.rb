@@ -64,5 +64,17 @@ RSpec.describe Product, type: :model do
       # puts user
       expect(user).to eq(demo_user)
     end
+
+    it "to lower case" do    
+      user_info = {id: 4, name: "user1", email: "CAs@d.com ", 
+        password: "1234567", password_digest: "$2a$10$kYj6PkJZgkWBpDocXsexA.Ph1NXs8fSQ6lmri/iS737.cI7eNmtBW", 
+        created_at: Date.today, updated_at: Date.today}
+      demo_user = User.new(user_info)
+      puts demo_user.save
+
+      user = User.find_by_email("cas@d.com")
+      # puts user
+      expect(user).to eq(demo_user)
+    end
   end
 end

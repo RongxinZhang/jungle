@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
 
     def strip_whitespace
         self.email = self.email.strip unless self.email.nil?
+        self.email = self.email.downcase unless self.email.nil?
     end
 
     def self.authenticate_with_credentials(email, password)
