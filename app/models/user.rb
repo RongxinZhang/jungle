@@ -12,4 +12,13 @@ class User < ActiveRecord::Base
     #         errors.add(:password, "password and password_confirmation don't match") 
     #     end
     # end
+
+    def self.authenticate_with_credentials(email, password)
+        user = self.find_by_email(email)
+        if (user && user.authenticate(password))
+          user
+        else
+          nil
+        end    
+    end
 end
