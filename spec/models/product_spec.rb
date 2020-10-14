@@ -60,15 +60,15 @@ RSpec.describe Product, type: :model do
       end
     end
 
-    context "has all fields" do
-      test_product = {name: "name", 
-        description: "description", price_cents: 10 , quantity: 10, category_id: 1}
+    # context "has all fields" do
+    #   test_product = {name: "name", 
+    #     description: "description", price_cents: 10 , quantity: 10, category_id: 1}
 
-      it "pass" do
-        product=Product.new(test_product)
-        expect(product.save).to be true
-      end
-    end
+    #   it "pass" do
+    #     product=Product.new(test_product)
+    #     expect(product.save).to be true
+    #   end
+    # end
 
   end
 end
