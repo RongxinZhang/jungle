@@ -20,8 +20,12 @@ RSpec.feature "Visitor navigates to product details", type: :feature, js: true d
     
     # ACT
     visit root_path
-    first('.product-details').click
+    
+    expect(page).to have_css 'article.product', count: 10
 
+    first('.product-detail-btn').click
+
+    expect(page).to have_css 'article.product-detail'
     # DEBUG / VERIFY
     save_screenshot
   end
